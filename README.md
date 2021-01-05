@@ -25,15 +25,16 @@ The hyperparameters that were to be tuned were:
  _max_iter_: Maximum number of iterations to converge
  ```
 
+Since time and compute resources are limited, we cannot explore all the possible hyperparameters. We therefore need to sample the hyperparameters and set an early termination policy that will ensure we are efficient.  
 
-We used RandomSampling because it would likely converge faster than other sampling methods.
-For early stooping, we used BanditPolicy as it would take less time by stopping runs that are out of the defined slack.
+* We used RandomParameterSampling because it randomly samples the search and supports early termination which is explained below.
+* According to Udacity notes, an early termination policy specifies that if you have a certain number of failures, HyperDrive will stop looking for the answer. This means that the hyperparameter tuning will take less time overall as the run will be stopped and another hyperameter set run initiated. For early stooping, we used BanditPolicy as it would take less time by stopping runs that are out of the defined slack.
 
 ## AutoML
-The best performing model was a StackEnsembleClassifier with one of its metaleaners as a logistic regression model with a max iteration value of 100.The metalearner used cross-validation version.
+The best performing model was a StackEnsembleClassifier with one of its metaleaners as a logistic regression model with a max iteration value of 100 and C of 10. The metalearner used cross-validation version. AutoML also produced useful classification metrics that we didn't define and has a feature to explain the best model.
 
 ## Pipeline comparison
-The best model was a StackEnsemble Model with an accuracy of 0.9168 that was obtained using AutoML vs Hyperdrive's logistic regression of max iterations 82 and C of 1 that had an accuracy of 0.91162. Since ensembling using many models to make a decision, as compared to hyperdrives one logistic regression, it was able to achieve a higher score.
+The best model was a StackEnsemble Model with an accuracy of 0.9168 that was obtained using AutoML vs Hyperdrive's logistic regression of max iterations 82 and C of 1 that had an accuracy of 0.91162. Since ensembling using many models to make a decision, as compared to Hyperdrive's one logistic regression, it was able to achieve a higher score.
 
 ## Future Improvement
 Advanced Feature engineering. deleting and creating new features and using other methods such as target encoding could help improve the results. The resulting feature set will be able to map well to the target variable resulting into better models.
