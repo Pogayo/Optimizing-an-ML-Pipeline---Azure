@@ -27,7 +27,16 @@ The hyperparameters that were to be tuned were:
 
 Since time and compute resources are limited, we cannot explore all the possible hyperparameters. We therefore need to sample the hyperparameters and set an early termination policy that will ensure we are efficient.  
 
-* We used RandomParameterSampling because it randomly samples the search and supports early termination which is explained below.
+* We used RandomParameterSampling because it computationally and time efficient. The differences between random and grid sampling are discussed below.
+
+| Random Sampling | Grid Sampling
+| -----------------|--------------
+| Supports early termination| Supports early termination
+| Can use both discrete and continous values | Can only use choice (discrete values)
+| Selects randomly | Tries all possible combinations of the hyperparameters
+| More computationally efficient (we have limited resources)| Less computationally efficient
+| Takes less time (the lab has a time limit) | Takes more time
+
 * According to Udacity notes, an early termination policy specifies that if you have a certain number of failures, HyperDrive will stop looking for the answer. This means that the hyperparameter tuning will take less time overall as the run will be stopped and another hyperameter set run initiated. For early stooping, we used BanditPolicy as it would take less time by stopping runs that are out of the defined slack.
 
 ## AutoML
