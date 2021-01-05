@@ -45,7 +45,7 @@ data_path= "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample
 
 ds =TabularDatasetFactory.from_delimited_files(path=data_path, separator=",")
 
-x, y = clean_data(ds)
+X, y = clean_data(ds)
 
 # TODO: Split data into train and test sets.
 
