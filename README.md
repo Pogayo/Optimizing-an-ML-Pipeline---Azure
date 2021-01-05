@@ -10,7 +10,7 @@ This dataset contains data about customers of a certain bank as it relates to a 
 
 The best model was a StackEnsemble Model with an accuracy of 0.9168 that was obtained using AutoML vs Hyperdrive's Logistic Regression of max iterations 82 and C of 1 that had an accuracy of 0.91162.
 
-![Pipeline architecture](project1_architecture.PNG)
+![Pipeline architecture](project1_architecture.png)
 
 Logistic regresssion which is a linear method for predicting if an observation belongs to a class or not was used.
 
